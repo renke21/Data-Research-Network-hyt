@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="heyating-hci 的 HCI 研究参与页面。当前招募 VTuber 参与直播身份边界与隐私保护访谈。"
+    />
+    <meta name="theme-color" content="#0f62fe" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="参与研究｜heyating-hci" />
+    <meta
+      property="og:description"
+      content="VTuber 直播中的真实身份边界与隐私保护——线上中文语音访谈参与者招募。"
+    />
+    <meta property="og:image" content="assets/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>参与研究｜heyating-hci</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="site-config.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="wordmark" href="#home" aria-label="heyating-hci 首页">
+          <span class="wordmark-mark" aria-hidden="true"></span>
+          heyating-hci
+        </a>
+        <nav class="site-nav" aria-label="主要导航">
+          <a href="#home">Home</a>
+          <a href="#study">当前研究</a>
+          <a href="#participate">参与说明</a>
+          <a href="#about">个人简介</a>
+        </nav>
+        <a class="header-cta" href="#signup">立即报名 <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-grid page-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Current study · 现正招募</p>
+            <h1 id="hero-title">
+              参与一项关于
+              <span>VTuber 直播身份与隐私</span>
+              的研究
+            </h1>
+            <p class="hero-intro">
+              我们正在招募拥有直播经历的 VTuber，参加一次线上中文语音访谈，
+              一起理解虚拟身份与现实身份之间的边界如何被管理。
+            </p>
+            <div class="hero-actions" aria-label="研究页面快捷入口">
+              <a class="button button-primary" href="#signup">
+                填写报名信息 <span aria-hidden="true">↓</span>
+              </a>
+              <a class="text-link" href="#study">先了解研究 <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <aside class="signup-panel" id="signup" aria-labelledby="signup-title">
+            <div class="panel-index" aria-hidden="true">01</div>
+            <p class="section-label">Participation form</p>
+            <h2 id="signup-title">报名参加访谈</h2>
+            <p class="panel-intro">
+              留下昵称和一个方便联系你的方式。提交报名不代表你必须参加。
+            </p>
+
+            <form id="signup-form" class="signup-form">
+              <input type="hidden" name="project" value="vtuber-identity-interview" />
+              <div class="honeypot" aria-hidden="true">
+                <label for="company">请勿填写此字段</label>
+                <input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="field">
+                <label for="nickname">昵称 <span aria-hidden="true">*</span></label>
+                <input
+                  id="nickname"
+                  name="nickname"
+                  type="text"
+                  autocomplete="nickname"
+                  maxlength="40"
+                  placeholder="希望我们如何称呼你？"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="contact">联系方式 <span aria-hidden="true">*</span></label>
+                <input
+                  id="contact"
+                  name="contact"
+                  type="text"
+                  maxlength="120"
+                  placeholder="邮箱、微信或其他常用联系方式"
+                  aria-describedby="contact-help"
+                  required
+                />
+                <p class="field-help" id="contact-help">仅用于本次研究的招募与联络。</p>
+              </div>
+
+              <label class="consent-row">
+                <input id="consent" name="consent" type="checkbox" required />
+                <span id="submission-consent-text"
+                  >我已了解：点击提交后将由我的设备打开邮件应用，发送邮件后才算完成报名。</span
+                >
+              </label>
+
+              <button class="button button-submit" type="submit">
+                生成报名邮件 <span aria-hidden="true">↗</span>
+              </button>
+              <p class="form-note" id="submission-note">
+                本网页不会保存你填写的内容。若邮件应用未打开，可将报名信息复制后发送至
+                <a class="contact-email" href="mailto:renkeho21@gmail.com">renkeho21@gmail.com</a>。
+              </p>
+              <div class="form-fallback" id="form-fallback" hidden>
+                <p id="form-status" role="status" aria-live="polite"></p>
+                <div class="fallback-actions">
+                  <button class="button button-secondary" id="copy-application" type="button">
+                    复制报名信息
+                  </button>
+                  <a class="text-link" id="open-email-again" href="#">再次打开邮件</a>
+                </div>
+              </div>
+            </form>
+          </aside>
+        </div>
+
+        <div class="study-facts" aria-label="访谈关键信息">
+          <div class="facts-inner page-grid">
+            <div class="fact">
+              <span class="fact-number">01</span>
+              <span>线上语音访谈</span>
+            </div>
+            <div class="fact">
+              <span class="fact-number">02</span>
+              <span>45–60 分钟</span>
+            </div>
+            <div class="fact">
+              <span class="fact-number">03</span>
+              <span>无需摄像头</span>
+            </div>
+            <div class="fact">
+              <span class="fact-number">04</span>
+              <span>中文进行</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section study-section" id="study" aria-labelledby="study-title">
+        <div class="page-grid">
+          <div class="section-heading">
+            <p class="section-label">Current research · 01</p>
+            <h2 id="study-title">理解直播中的<br />身份边界</h2>
+          </div>
+          <div class="study-summary">
+            <p class="lead">
+              VTuber 的直播身份并不只涉及“是否公开真实姓名”。声音、旧账号、生活经历、
+              现实环境和日常互动，都可能成为连接虚拟身份与现实身份的线索。
+            </p>
+            <p>
+              本研究希望了解 VTuber 如何理解和管理这些信息，以及当身份线索被意外暴露、
+              被观众追问或遭遇恶意传播时，主播、观众与管理者通常如何应对。
+              研究结果将用于相关学术分析，并为平台的隐私提醒与管理功能设计提供参考。
+            </p>
+          </div>
+          <div class="study-status" aria-label="研究状态">
+            <span>状态</span>
+            <strong><span class="status-dot" aria-hidden="true"></span> 招募中</strong>
+          </div>
+
+          <figure class="research-figure poster-figure">
+            <button
+              class="image-button"
+              type="button"
+              data-image="assets/vtuber-recruitment.png"
+              data-alt="VTuber 访谈参与者招募完整海报"
+              aria-label="查看 VTuber 访谈参与者招募海报大图"
+            >
+              <img
+                src="assets/vtuber-recruitment.png"
+                alt="VTuber 访谈参与者招募海报，包含研究主题、招募对象、访谈形式和隐私说明"
+                loading="lazy"
+                width="1054"
+                height="1494"
+              />
+              <span class="image-action">查看完整招募海报 <span aria-hidden="true">↗</span></span>
+            </button>
+            <figcaption>
+              <span>研究招募海报</span>
+              <span>点击查看大图</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section eligibility-section" id="participate" aria-labelledby="participate-title">
+        <div class="page-grid">
+          <div class="section-heading">
+            <p class="section-label">Who can join</p>
+            <h2 id="participate-title">谁可以<br />参加？</h2>
+          </div>
+
+          <article class="criteria-card criteria-primary">
+            <p class="card-index">A / 基本条件</p>
+            <ul class="check-list">
+              <li>年满 18 周岁</li>
+              <li>目前或曾经以 VTuber 身份开展直播</li>
+              <li>持续直播时间不少于 6 个月</li>
+              <li>活动平台不限，可包括 Bilibili、YouTube、Twitch 等</li>
+              <li>独立 VTuber、个人势或机构签约 VTuber 均可</li>
+            </ul>
+            <p class="callout">
+              不要求你曾经历过“开盒”或严重的隐私泄露事件。
+            </p>
+          </article>
+
+          <article class="criteria-card criteria-secondary">
+            <p class="card-index">B / 有以下经历也非常欢迎</p>
+            <ul class="plain-list">
+              <li>遇到与现实身份有关的提问或线索暴露</li>
+              <li>摄像头、UID、定位、支付信息或现实环境意外出现在直播中</li>
+              <li>观众根据声音、旧账号或生活经历推测现实身份</li>
+              <li>遭遇隐私试探、信息泄露、开盒、骚扰或恶意传播</li>
+              <li>观众、管理员或粉丝协助提醒和处理身份风险</li>
+              <li>因隐私风险调整直播内容、账号或粉丝群管理方式</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section interview-section" aria-labelledby="interview-title">
+        <div class="page-grid">
+          <div class="section-heading">
+            <p class="section-label">Interview format</p>
+            <h2 id="interview-title">一次轻量的<br />线上访谈</h2>
+          </div>
+
+          <div class="interview-grid">
+            <div class="interview-item">
+              <span>形式</span>
+              <strong>线上语音访谈</strong>
+            </div>
+            <div class="interview-item">
+              <span>时长</span>
+              <strong>约 45–60 分钟</strong>
+            </div>
+            <div class="interview-item">
+              <span>语言</span>
+              <strong>中文</strong>
+            </div>
+            <div class="interview-item">
+              <span>摄像头</span>
+              <strong>无需开启</strong>
+            </div>
+          </div>
+
+          <p class="interview-copy">
+            访谈将围绕直播经历、身份边界、隐私管理、具体风险情境、观众与管理员的反应，
+            以及对平台功能的建议展开。
+          </p>
+        </div>
+      </section>
+
+      <section class="section framework-section" aria-labelledby="framework-title">
+        <div class="page-grid">
+          <div class="framework-copy">
+            <p class="section-label">Research perspective</p>
+            <h2 id="framework-title">从个人隐私到<br />协作式社会生态</h2>
+            <p>
+              我们将直播身份理解为由身份属性、表达情境与数据痕迹共同构成，
+              并关注主播、观众、管理者、社区和平台如何协作识别与处理身份风险。
+            </p>
+          </div>
+          <figure class="research-figure framework-figure">
+            <button
+              class="image-button"
+              type="button"
+              data-image="assets/livestreaming-identity-ecosystem.png"
+              data-alt="从个人隐私到直播身份协作式社会生态的研究框架图"
+              aria-label="查看直播身份协作式社会生态研究框架大图"
+            >
+              <img
+                src="assets/livestreaming-identity-ecosystem.png"
+                alt="直播身份协作式社会生态研究框架，展示社会价值、身份属性、表达层、数据痕迹及治理技术"
+                loading="lazy"
+                width="1600"
+                height="1029"
+              />
+              <span class="image-action">查看研究框架 <span aria-hidden="true">↗</span></span>
+            </button>
+            <figcaption>从个人隐私、数字身份到直播身份的研究视角</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section privacy-section" aria-labelledby="privacy-title">
+        <div class="page-grid">
+          <div class="section-heading">
+            <p class="section-label">Privacy first</p>
+            <h2 id="privacy-title">你的隐私<br />同样重要</h2>
+          </div>
+          <ol class="privacy-list">
+            <li>
+              <span>01</span>
+              <p>访谈前将提供研究说明与知情同意材料。</p>
+            </li>
+            <li>
+              <span>02</span>
+              <p>不要求提供真实姓名、住址、身份证号等敏感身份信息。</p>
+            </li>
+            <li>
+              <span>03</span>
+              <p>在取得知情同意后，访谈录音及转录内容仅用于本项学术研究。</p>
+            </li>
+            <li>
+              <span>04</span>
+              <p>研究分析与论文呈现将采用匿名化处理。</p>
+            </li>
+            <li>
+              <span>05</span>
+              <p>你可以拒绝回答任何问题，并可随时暂停或退出访谈。</p>
+            </li>
+            <li>
+              <span>06</span>
+              <p>报名阶段仅收集昵称和联系方式，用于资格确认、访谈安排及必要联络。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="page-grid">
+          <div class="about-name">
+            <p class="section-label">About</p>
+            <h2 id="about-title">heyating-hci</h2>
+          </div>
+          <div class="about-copy">
+            <p class="lead">
+              本页面用于发布 HCI 研究招募、介绍研究项目，并与有意参与者取得联系。
+            </p>
+            <p>
+              当前关注直播身份、隐私体验与社会技术系统。页面仅展示与研究参与相关的必要信息。
+            </p>
+          </div>
+          <a class="button button-dark" href="#signup">
+            回到报名表 <span aria-hidden="true">↑</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-grid">
+        <div class="footer-brand">heyating-hci</div>
+        <p>HCI Research Participation</p>
+        <a class="contact-email" href="mailto:renkeho21@gmail.com">Email</a>
+        <a href="#home">返回顶部 ↑</a>
+        <p class="footer-meta">© <span id="current-year"></span> heyating-hci</p>
+      </div>
+    </footer>
+
+    <dialog class="image-dialog" id="image-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-header">
+        <h2 id="dialog-title">查看大图</h2>
+        <button class="dialog-close" type="button" aria-label="关闭大图">关闭 ×</button>
+      </div>
+      <div class="dialog-image-wrap">
+        <img id="dialog-image" src="" alt="" />
+      </div>
+    </dialog>
+  </body>
+</html>
