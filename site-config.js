@@ -13,5 +13,5 @@ window.SITE_CONFIG = {
    * wechatQrImage: "assets/wechat-qr.png",
    * 没有二维码图片时请保持为空，不要使用普通文字二维码冒充好友二维码。
    */
-  wechatQrImage: "",
+  wechatQrImage: "assets/wechat-qr.png",
 };
