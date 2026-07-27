@@ -5,15 +5,13 @@
 window.SITE_CONFIG = {
   researcherName: "heyating-hci",
   contactEmail: "renkeho21@gmail.com",
+  wechatId: "hytvchat",
   studyName: "VTuber 直播身份与隐私访谈",
 
-  // true = 开放报名；false = 关闭表单并显示“本轮招募已结束”
-  recruitmentOpen: true,
-
   /*
-   * 默认留空：报名时打开参与者的邮件应用，无需额外服务。
-   * 若以后使用 Formspree，可把完整 endpoint 填入，例如：
-   * formEndpoint: "https://formspree.io/f/xxxxxxxx",
+   * 微信个人二维码图片上传到 assets 后，在这里填写相对路径，例如：
+   * wechatQrImage: "assets/wechat-qr.png",
+   * 没有二维码图片时请保持为空，不要使用普通文字二维码冒充好友二维码。
    */
-  formEndpoint: "",
+  wechatQrImage: "",
 };

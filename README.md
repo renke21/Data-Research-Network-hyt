@@ -4,7 +4,7 @@
 
 当前页面包含：
 
-- 首页招募与极简报名表
+- 首页招募与联系方式复制区
 - VTuber 直播身份与隐私研究介绍
 - 招募条件、访谈形式和隐私说明
 - heyating-hci 个人简介
@@ -67,46 +67,36 @@ assets/
 4. Branch 选择 `main`，文件夹选择 `/(root)`，点击 `Save`。
 5. 等待数分钟，回到此页面查看 GitHub 给出的网址。
 
-## 二、报名表如何工作
+## 二、联系报名如何工作
 
-默认版本不使用数据库，也不会把参与者填写的内容保存在网页或 GitHub 中。
+网站不再展示报名表，也不会要求访客在网页中填写昵称、联系方式等个人信息。
 
-参与者点击“生成报名邮件”后，网站会在其设备上打开默认邮件应用，并自动填好昵称、联系方式、主题和收件地址。参与者在邮件应用中确认并发送后，报名才完成。
+参与者可以点击按钮复制联系邮箱，或复制微信号 `hytvchat` 后在微信中搜索添加。网站不会自动打开邮件应用。
 
-这种方式适合快速上线，也避免把联系方式写入公开仓库，但参与者的设备需要配置可用的邮件应用。页面提供“复制报名信息”作为备用方法。
+如果需要显示微信个人二维码：
 
-如果后期希望参与者在网页内直接提交，可使用 Formspree 或学校批准的 Qualtrics、REDCap 等工具。获得表单 endpoint 后，只需编辑 `site-config.js`：
+1. 将真实的微信个人二维码图片上传到 `assets`，建议命名为 `wechat-qr.png`。
+2. 在 `site-config.js` 中设置：
 
 ```js
-formEndpoint: "https://formspree.io/f/你的表单ID",
+wechatQrImage: "assets/wechat-qr.png",
 ```
 
-使用第三方表单服务前，请同步更新页面的报名数据说明，写清服务商、访问权限、保存位置与删除周期；同时在服务后台限制允许提交的域名，并完成一次真实收件测试。
-
-不要把密码、API Key、参与者数据或报名表导出文件上传到 GitHub。
+必须使用微信客户端生成的真实好友二维码；普通文字二维码只能显示微信号，不能可靠地直接添加好友。
 
 ## 三、最常用的后期维护
 
-### 修改联系邮箱、研究名称
+### 修改邮箱、微信号或研究名称
 
 在 GitHub 中打开 `site-config.js`，点击铅笔图标编辑：
 
 ```js
 contactEmail: "新的邮箱",
+wechatId: "新的微信号",
 studyName: "新的研究名称",
 ```
 
 保存并提交后，GitHub Pages 会自动重新发布。
-
-### 暂停或重新开放报名
-
-在 `site-config.js` 中修改：
-
-```js
-recruitmentOpen: false,
-```
-
-`false` 会关闭表单并显示“本轮招募已结束”；改回 `true` 即重新开放。
 
 ### 修改页面文字
 
@@ -133,9 +123,9 @@ recruitmentOpen: false,
 
 ## 四、每次更新后的检查
 
-- 首页、导航链接和“回到报名表”是否正常
-- 昵称与联系方式是否必填
-- 实际发送一封测试报名邮件
+- 首页、导航链接和“查看联系方式”是否正常
+- “复制邮箱”和“复制微信号”是否正常
+- 如果配置了微信二维码，手机扫码后是否能打开正确的微信好友信息
 - 两张研究图片是否能加载并查看大图
 - 用手机打开网址，确认文字和按钮没有被截断
 - 招募状态、研究条件、邮箱和隐私说明是否仍然准确
@@ -151,8 +141,8 @@ recruitmentOpen: false,
 
 - `index.html`：页面全部文字与结构
 - `styles.css`：颜色、字体、布局与手机适配
-- `script.js`：报名邮件、复制信息和图片大图功能
-- `site-config.js`：邮箱、研究名称、招募开关和可选表单 endpoint
+- `script.js`：复制邮箱、复制微信号和图片大图功能
+- `site-config.js`：邮箱、微信号、研究名称和可选微信二维码路径
 - `assets/`：网站图片
 - `.nojekyll`：让 GitHub Pages 直接发布静态文件
 
@@ -161,5 +151,3 @@ recruitmentOpen: false,
 - [GitHub：上传项目文件](https://docs.github.com/en/get-started/start-your-journey/uploading-a-project-to-github)
 - [GitHub Pages：设置发布来源](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 - [GitHub：直接在网页中编辑文件](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)
-- [Formspree：建立 HTML 表单](https://help.formspree.io/articles/building-your-form/building-an-html-form)
-- [Formspree：限制允许提交的域名](https://help.formspree.io/articles/form-and-project-settings/restrict-to-domain)

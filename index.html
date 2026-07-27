@@ -36,7 +36,7 @@
           <a href="#participate">参与说明</a>
           <a href="#about">个人简介</a>
         </nav>
-        <a class="header-cta" href="#signup">立即报名 <span aria-hidden="true">↗</span></a>
+        <a class="header-cta" href="#contact">联系报名 <span aria-hidden="true">↗</span></a>
       </div>
     </header>
 
@@ -55,78 +55,76 @@
               一起理解虚拟身份与现实身份之间的边界如何被管理。
             </p>
             <div class="hero-actions" aria-label="研究页面快捷入口">
-              <a class="button button-primary" href="#signup">
-                填写报名信息 <span aria-hidden="true">↓</span>
+              <a class="button button-primary" href="#contact">
+                查看联系方式 <span aria-hidden="true">↓</span>
               </a>
               <a class="text-link" href="#study">先了解研究 <span aria-hidden="true">→</span></a>
             </div>
           </div>
 
-          <aside class="signup-panel" id="signup" aria-labelledby="signup-title">
+          <aside class="contact-panel" id="contact" aria-labelledby="contact-title">
             <div class="panel-index" aria-hidden="true">01</div>
-            <p class="section-label">Participation form</p>
-            <h2 id="signup-title">报名参加访谈</h2>
+            <p class="section-label">Participation contact</p>
+            <h2 id="contact-title">联系报名</h2>
             <p class="panel-intro">
-              留下昵称和一个方便联系你的方式。提交报名不代表你必须参加。
+              暂时无需在网页填写任何个人信息。请复制邮箱地址，或添加微信联系报名。
             </p>
 
-            <form id="signup-form" class="signup-form">
-              <input type="hidden" name="project" value="vtuber-identity-interview" />
-              <div class="honeypot" aria-hidden="true">
-                <label for="company">请勿填写此字段</label>
-                <input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
-              </div>
-              <div class="field">
-                <label for="nickname">昵称 <span aria-hidden="true">*</span></label>
-                <input
-                  id="nickname"
-                  name="nickname"
-                  type="text"
-                  autocomplete="nickname"
-                  maxlength="40"
-                  placeholder="希望我们如何称呼你？"
-                  required
-                />
-              </div>
-
-              <div class="field">
-                <label for="contact">联系方式 <span aria-hidden="true">*</span></label>
-                <input
-                  id="contact"
-                  name="contact"
-                  type="text"
-                  maxlength="120"
-                  placeholder="邮箱、微信或其他常用联系方式"
-                  aria-describedby="contact-help"
-                  required
-                />
-                <p class="field-help" id="contact-help">仅用于本次研究的招募与联络。</p>
-              </div>
-
-              <label class="consent-row">
-                <input id="consent" name="consent" type="checkbox" required />
-                <span id="submission-consent-text"
-                  >我已了解：点击提交后将由我的设备打开邮件应用，发送邮件后才算完成报名。</span
-                >
-              </label>
-
-              <button class="button button-submit" type="submit">
-                生成报名邮件 <span aria-hidden="true">↗</span>
-              </button>
-              <p class="form-note" id="submission-note">
-                本网页不会保存你填写的内容。若邮件应用未打开，可将报名信息复制后发送至
-                <a class="contact-email" href="mailto:renkeho21@gmail.com">renkeho21@gmail.com</a>。
-              </p>
-              <div class="form-fallback" id="form-fallback" hidden>
-                <p id="form-status" role="status" aria-live="polite"></p>
-                <div class="fallback-actions">
-                  <button class="button button-secondary" id="copy-application" type="button">
-                    复制报名信息
+            <div class="contact-options">
+              <article class="contact-method">
+                <p class="contact-kind">Email</p>
+                <div class="contact-method-row">
+                  <strong class="contact-address" data-contact-value="email">renkeho21@gmail.com</strong>
+                  <button
+                    class="button button-secondary copy-contact"
+                    type="button"
+                    data-copy-contact="email"
+                  >
+                    复制邮箱
                   </button>
-                  <a class="text-link" id="open-email-again" href="#">再次打开邮件</a>
                 </div>
-              </div>
-            </form>
+              </article>
+
+              <article class="contact-method">
+                <p class="contact-kind">WeChat</p>
+                <div class="contact-method-row">
+                  <strong class="contact-address" data-contact-value="wechat">hytvchat</strong>
+                  <button
+                    class="button button-secondary copy-contact"
+                    type="button"
+                    data-copy-contact="wechat"
+                  >
+                    复制微信号
+                  </button>
+                </div>
+              </article>
+
+              <article class="wechat-qr-card">
+                <div class="wechat-qr-copy">
+                  <p class="contact-kind" id="wechat-qr-label">微信联系</p>
+                  <h3>添加微信后，请备注“VTuber 访谈”。</h3>
+                  <p>当前可复制微信号 <strong data-contact-value="wechat">hytvchat</strong>，在微信中搜索添加。</p>
+                </div>
+                <div class="wechat-qr-visual">
+                  <img
+                    id="wechat-qr-image"
+                    src=""
+                    alt="heyating-hci 微信二维码"
+                    width="240"
+                    height="240"
+                    hidden
+                  />
+                  <div class="qr-empty" id="wechat-qr-empty">
+                    <span aria-hidden="true">＋</span>
+                    <p>复制微信号<br />在微信中搜索添加</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <p class="contact-status" id="contact-status" role="status" aria-live="polite">
+              不会从本页面收集或保存你的昵称、联系方式等个人信息。
+            </p>
           </aside>
         </div>
 
@@ -328,7 +326,7 @@
             </li>
             <li>
               <span>06</span>
-              <p>报名阶段仅收集昵称和联系方式，用于资格确认、访谈安排及必要联络。</p>
+              <p>本页面不收集报名信息；如有参与意向，请主动通过页面展示的邮箱或微信联系。</p>
             </li>
           </ol>
         </div>
@@ -348,8 +346,8 @@
               当前关注直播身份、隐私体验与社会技术系统。页面仅展示与研究参与相关的必要信息。
             </p>
           </div>
-          <a class="button button-dark" href="#signup">
-            回到报名表 <span aria-hidden="true">↑</span>
+          <a class="button button-dark" href="#contact">
+            查看联系方式 <span aria-hidden="true">↑</span>
           </a>
         </div>
       </section>
@@ -359,7 +357,7 @@
       <div class="page-grid">
         <div class="footer-brand">heyating-hci</div>
         <p>HCI Research Participation</p>
-        <a class="contact-email" href="mailto:renkeho21@gmail.com">Email</a>
+        <a href="#contact">联系方式</a>
         <a href="#home">返回顶部 ↑</a>
         <p class="footer-meta">© <span id="current-year"></span> heyating-hci</p>
       </div>

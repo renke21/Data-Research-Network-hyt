@@ -319,8 +319,7 @@ a {
   transform: translateY(-1px);
 }
 
-.button-primary,
-.button-submit {
+.button-primary {
   background: var(--blue-60);
   color: var(--white);
 }
@@ -329,8 +328,7 @@ a {
   min-width: min(100%, 14rem);
 }
 
-.button-primary:hover,
-.button-submit:hover {
+.button-primary:hover {
   background: var(--blue-70);
 }
 
@@ -380,7 +378,7 @@ a {
   transform: scaleX(1);
 }
 
-.signup-panel {
+.contact-panel {
   position: relative;
   grid-column: 8 / -1;
   align-self: center;
@@ -400,7 +398,7 @@ a {
   line-height: 1;
 }
 
-.signup-panel h2 {
+.contact-panel h2 {
   max-width: 9ch;
   margin: 0;
   font-size: clamp(2rem, 3.2vw, 3.5rem);
@@ -415,121 +413,116 @@ a {
   color: var(--gray-70);
 }
 
-.signup-form {
+.contact-options {
   display: grid;
-  gap: 1.25rem;
-}
-
-.honeypot {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
+  gap: 1px;
   overflow: hidden;
+  border: 1px solid var(--gray-20);
+  background: var(--gray-20);
 }
 
-.field {
-  display: grid;
-}
-
-.field label {
-  margin-bottom: 0.45rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.field label span {
-  color: #da1e28;
-}
-
-.field input {
-  width: 100%;
-  min-height: 3.5rem;
-  padding: 0.9rem 1rem;
-  border: 0;
-  border-bottom: 2px solid var(--gray-80);
-  border-radius: 0;
+.contact-method,
+.wechat-qr-card {
   background: var(--white);
-  color: var(--gray-100);
-  font-size: 1rem;
 }
 
-.field input:hover {
-  background: #fafafa;
+.contact-method {
+  padding: 1.25rem;
 }
 
-.field input:focus {
-  border-bottom-color: var(--blue-60);
-  outline: 2px solid var(--blue-60);
-  outline-offset: -2px;
-}
-
-.field input::placeholder {
-  color: var(--gray-50);
-  opacity: 1;
-}
-
-.field-help,
-.form-note {
-  margin: 0.5rem 0 0;
+.contact-kind {
+  margin: 0 0 0.6rem;
   color: var(--gray-70);
-  font-size: 0.75rem;
-  line-height: 1.55;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.consent-row {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.75rem;
-  align-items: start;
-  color: var(--gray-70);
-  cursor: pointer;
-  font-size: 0.78rem;
-  line-height: 1.55;
-}
-
-.consent-row input {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin: 0.15rem 0 0;
-  accent-color: var(--blue-60);
-}
-
-.button-submit {
-  width: 100%;
-}
-
-.button:disabled,
-input:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
-}
-
-.form-note a {
-  color: var(--blue-60);
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-}
-
-.form-fallback {
-  padding: 1rem;
-  border-left: 3px solid var(--blue-60);
-  background: var(--blue-10);
-}
-
-.form-fallback p {
-  margin: 0 0 0.75rem;
-  font-size: 0.85rem;
-}
-
-.fallback-actions {
+.contact-method-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
-.fallback-actions .button {
-  min-height: 2.75rem;
+.contact-address {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+}
+
+.copy-contact {
+  flex: 0 0 auto;
+  min-height: 2.8rem;
+  padding-block: 0.65rem;
+}
+
+.wechat-qr-card {
+  display: grid;
+  grid-template-columns: 1fr 9rem;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.wechat-qr-copy h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.wechat-qr-copy > p:last-child {
+  margin: 0.75rem 0 0;
+  color: var(--gray-70);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.wechat-qr-visual {
+  width: 9rem;
+  aspect-ratio: 1;
+  background: var(--gray-10);
+}
+
+.wechat-qr-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qr-empty {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+  color: var(--gray-70);
+  text-align: center;
+}
+
+.qr-empty span {
+  color: var(--blue-60);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.qr-empty p {
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.contact-status {
+  min-height: 2.6rem;
+  margin: 1rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--blue-60);
+  color: var(--gray-70);
+  font-size: 0.75rem;
+  line-height: 1.55;
 }
 
 .study-facts {
@@ -1042,7 +1035,7 @@ input:disabled {
     grid-column: 1 / span 6;
   }
 
-  .signup-panel {
+  .contact-panel {
     grid-column: 7 / -1;
   }
 
@@ -1087,7 +1080,7 @@ input:disabled {
   }
 
   .hero-copy,
-  .signup-panel {
+  .contact-panel {
     grid-column: 1 / -1;
   }
 
@@ -1214,13 +1207,25 @@ input:disabled {
     font-size: clamp(2.8rem, 14vw, 4.2rem);
   }
 
-  .signup-panel {
+  .contact-panel {
     margin-inline: -1.25rem;
   }
 
-  .fallback-actions {
-    align-items: flex-start;
+  .contact-method-row {
+    align-items: stretch;
     flex-direction: column;
+  }
+
+  .copy-contact {
+    width: 100%;
+  }
+
+  .wechat-qr-card {
+    grid-template-columns: 1fr;
+  }
+
+  .wechat-qr-visual {
+    width: min(100%, 13rem);
   }
 
   .image-action {
@@ -1269,7 +1274,7 @@ input:disabled {
 @media print {
   .site-header,
   .hero-actions,
-  .signup-panel,
+  .contact-panel,
   .image-action,
   .button,
   .site-footer {
