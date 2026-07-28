@@ -68,8 +68,9 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--cyan-40);
-  outline-offset: 3px;
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--gray-100);
 }
 
 ::selection {
@@ -320,12 +321,9 @@ a {
 }
 
 .button-primary {
+  min-width: min(100%, 14rem);
   background: var(--blue-60);
   color: var(--white);
-}
-
-.button-primary {
-  min-width: min(100%, 14rem);
 }
 
 .button-primary:hover {
@@ -422,7 +420,7 @@ a {
 }
 
 .contact-method,
-.wechat-qr-card {
+.booking-qr-card {
   background: var(--white);
 }
 
@@ -459,7 +457,7 @@ a {
   padding-block: 0.65rem;
 }
 
-.wechat-qr-card {
+.booking-qr-card {
   display: grid;
   grid-template-columns: 1fr 9rem;
   gap: 1.25rem;
@@ -467,62 +465,58 @@ a {
   padding: 1.25rem;
 }
 
-.wechat-qr-copy h3 {
+.booking-qr-copy h3 {
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
 }
 
-.wechat-qr-copy > p:last-child {
+.booking-qr-copy > p:last-child {
   margin: 0.75rem 0 0;
   color: var(--gray-70);
   font-size: 0.78rem;
   line-height: 1.6;
 }
 
-.wechat-qr-visual {
+.booking-qr-visual {
   width: 9rem;
   aspect-ratio: 1;
   background: var(--gray-10);
 }
 
-.wechat-qr-visual img {
+.booking-qr-visual img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.qr-empty {
-  display: grid;
-  place-items: center;
+.booking-link {
+  grid-column: 1 / -1;
   width: 100%;
-  height: 100%;
-  padding: 0.75rem;
+  justify-content: center;
+}
+
+.contact-note,
+.contact-status {
+  margin: 1rem 0 0;
   color: var(--gray-70);
-  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
-.qr-empty span {
-  color: var(--blue-60);
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.qr-empty p {
-  margin: 0;
-  font-size: 0.7rem;
-  line-height: 1.5;
+.contact-note {
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--blue-60);
 }
 
 .contact-status {
-  min-height: 2.6rem;
-  margin: 1rem 0 0;
-  padding-left: 0.85rem;
-  border-left: 3px solid var(--blue-60);
-  color: var(--gray-70);
-  font-size: 0.75rem;
-  line-height: 1.55;
+  color: var(--blue-70);
+  font-weight: 600;
+}
+
+.contact-status:empty {
+  display: none;
 }
 
 .study-facts {
@@ -575,6 +569,13 @@ a {
   line-height: 1;
 }
 
+html:lang(zh-CN) .hero h1,
+html:lang(zh-CN) .section-heading h2,
+html:lang(zh-CN) .framework-copy h2,
+html:lang(zh-CN) .about-name h2 {
+  letter-spacing: -0.015em;
+}
+
 .study-section {
   background: var(--white);
 }
@@ -624,10 +625,6 @@ a {
   margin: clamp(3rem, 7vw, 7rem) 0 0;
 }
 
-.poster-figure {
-  grid-column: 3 / span 8;
-}
-
 .image-button {
   position: relative;
   display: block;
@@ -672,6 +669,38 @@ a {
   margin-top: 0.75rem;
   color: var(--gray-70);
   font-size: 0.75rem;
+}
+
+.figure-transcript {
+  margin-top: 1rem;
+  border-top: 1px solid var(--gray-20);
+  border-bottom: 1px solid var(--gray-20);
+}
+
+.figure-transcript summary {
+  padding: 1rem 0;
+  color: var(--blue-60);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.figure-transcript > div {
+  max-width: 58rem;
+  padding-bottom: 1rem;
+  color: var(--gray-70);
+}
+
+.figure-transcript p {
+  margin: 0 0 1rem;
+}
+
+.figure-transcript ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.figure-transcript li + li {
+  margin-top: 0.4rem;
 }
 
 .eligibility-section {
@@ -1004,6 +1033,10 @@ a {
 }
 
 @media (max-width: 1120px) {
+  html {
+    scroll-padding-top: 7.5rem;
+  }
+
   .header-inner {
     grid-template-columns: 1fr auto;
   }
@@ -1025,6 +1058,12 @@ a {
     justify-content: center;
     min-height: 3rem;
     padding-inline: 1rem;
+  }
+
+  .site-nav a:focus-visible {
+    outline: 2px solid var(--gray-100);
+    outline-offset: -4px;
+    box-shadow: none;
   }
 
   .hero-grid {
@@ -1057,10 +1096,6 @@ a {
     --page-gutter: 1.25rem;
   }
 
-  html {
-    scroll-padding-top: 7rem;
-  }
-
   .page-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 1rem;
@@ -1088,11 +1123,6 @@ a {
     padding-right: 0;
   }
 
-  .hero h1 {
-    max-width: 12ch;
-    font-size: clamp(3.2rem, 13vw, 5rem);
-  }
-
   .hero-actions {
     align-items: flex-start;
     flex-direction: column;
@@ -1116,7 +1146,6 @@ a {
   .section-heading,
   .study-summary,
   .study-status,
-  .poster-figure,
   .criteria-primary,
   .criteria-secondary,
   .interview-grid,
@@ -1138,10 +1167,6 @@ a {
 
   .study-status {
     margin-top: 1rem;
-  }
-
-  .poster-figure {
-    margin-top: 4rem;
   }
 
   .criteria-card + .criteria-card {
@@ -1195,8 +1220,17 @@ a {
     padding-inline: 1rem;
   }
 
+  .site-nav {
+    overflow-x: visible;
+  }
+
   .site-nav a {
-    justify-content: flex-start;
+    flex: 1 1 0;
+    justify-content: center;
+    min-width: 0;
+    padding-inline: 0.35rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
   }
 
   .hero {
@@ -1204,7 +1238,8 @@ a {
   }
 
   .hero h1 {
-    font-size: clamp(2.8rem, 14vw, 4.2rem);
+    max-width: 12ch;
+    font-size: clamp(2.65rem, 12.8vw, 3rem);
   }
 
   .contact-panel {
@@ -1220,11 +1255,11 @@ a {
     width: 100%;
   }
 
-  .wechat-qr-card {
+  .booking-qr-card {
     grid-template-columns: 1fr;
   }
 
-  .wechat-qr-visual {
+  .booking-qr-visual {
     width: min(100%, 13rem);
   }
 
@@ -1253,6 +1288,7 @@ a {
   .image-dialog {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
   }
 }
 
@@ -1274,7 +1310,6 @@ a {
 @media print {
   .site-header,
   .hero-actions,
-  .contact-panel,
   .image-action,
   .button,
   .site-footer {

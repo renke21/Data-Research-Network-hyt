@@ -1,50 +1,14 @@
 # heyating-hci 研究参与网站
 
-这是一个可以直接发布到 GitHub Pages 的静态网站，不需要安装软件或执行构建命令。
+这是一个无需构建工具的静态网站，可直接发布到 GitHub Pages。
 
-当前页面包含：
+在线地址
 
-- 首页招募与联系方式复制区
-- VTuber 直播身份与隐私研究介绍
-- 招募条件、访谈形式和隐私说明
-- heyating-hci 个人简介
-- 两张研究图片与大图查看功能
-- 电脑、平板和手机响应式布局
+[https://renke21.github.io/Data-Research-Network-hyt/](https://renke21.github.io/Data-Research-Network-hyt/)
 
-## 一、第一次发布
+当前页面用于招募 VTuber 参加直播身份与隐私研究访谈。参与者可以复制联系邮箱，也可以扫描二维码或打开腾讯问卷预约。网站只保留当前研究需要的内容和图片。
 
-### 1. 创建 GitHub 仓库
-
-1. 登录 GitHub，点击右上角 `+`，选择 `New repository`。
-2. 如果你的 GitHub 用户名正好是 `heyating-hci`，建议仓库名使用：
-
-   ```text
-   heyating-hci.github.io
-   ```
-
-   这样网址通常会是：
-
-   ```text
-   https://heyating-hci.github.io/
-   ```
-
-3. 如果用户名不是 `heyating-hci`，也可以把仓库命名为 `research-participation`，网址通常会是：
-
-   ```text
-   https://你的用户名.github.io/research-participation/
-   ```
-
-4. 仓库选择 `Public`，然后创建。
-
-### 2. 上传网站
-
-1. 先解压收到的 ZIP 文件。
-2. 在仓库页面点击 `Add file` → `Upload files`。
-3. 把解压后文件夹中的**全部文件和 `assets` 文件夹**拖入网页。
-4. 确认 `index.html` 直接位于仓库最外层，而不是又套在一层文件夹里。
-5. 在下方填写提交说明，例如 `Initial recruitment site`，点击提交。
-
-正确的仓库最外层结构应为：
+## 文件结构
 
 ```text
 index.html
@@ -54,100 +18,108 @@ site-config.js
 README.md
 .nojekyll
 assets/
+  interview-booking-qr.png
   livestreaming-identity-ecosystem.png
   og.png
-  vtuber-recruitment.png
 ```
 
-### 3. 开启 GitHub Pages
+- `index.html` 包含页面结构和大部分文字
+- `styles.css` 包含 IBM 风格的颜色、布局和手机适配
+- `script.js` 负责复制邮箱、载入报名配置和查看研究框架大图
+- `site-config.js` 集中保存邮箱、问卷链接和二维码路径
+- `assets` 保存网站图片
+- `.nojekyll` 让 GitHub Pages 直接发布这些静态文件
 
-1. 打开仓库的 `Settings`。
-2. 左侧选择 `Pages`。
-3. 在 `Build and deployment` 中，将 `Source` 设为 `Deploy from a branch`。
-4. Branch 选择 `main`，文件夹选择 `/(root)`，点击 `Save`。
-5. 等待数分钟，回到此页面查看 GitHub 给出的网址。
+## 在 GitHub 网页中修改
 
-## 二、联系报名如何工作
+这是最简单的维护方式。
 
-网站不再展示报名表，也不会要求访客在网页中填写昵称、联系方式等个人信息。
+1. 打开 [网站仓库](https://github.com/renke21/Data-Research-Network-hyt)。
+2. 点击要修改的文件。
+3. 点击文件右上方的铅笔图标。
+4. 修改内容后，点击 `Commit changes`。
+5. 等待一至数分钟，再刷新网站。
 
-参与者可以点击按钮复制联系邮箱，或复制微信号 `hytvchat` 后在微信中搜索添加。网站不会自动打开邮件应用。
+建议一次只改一类内容。提交前可以使用 GitHub 的预览和差异页面检查改动。
 
-如果需要显示微信个人二维码：
+## 修改邮箱或预约问卷
 
-1. 将真实的微信个人二维码图片上传到 `assets`，建议命名为 `wechat-qr.png`。
-2. 在 `site-config.js` 中设置：
+打开 `site-config.js`，修改对应引号内的内容。
 
 ```js
-wechatQrImage: "assets/wechat-qr.png",
+window.SITE_CONFIG = Object.freeze({
+  contactEmail: "renkeho21@gmail.com",
+  bookingUrl: "https://wj.qq.com/s2/27425896/i3lw/",
+  bookingQrImage: "assets/interview-booking-qr.png",
+});
 ```
 
-必须使用微信客户端生成的真实好友二维码；普通文字二维码只能显示微信号，不能可靠地直接添加好友。
+`contactEmail` 是复制按钮使用的邮箱。
 
-## 三、最常用的后期维护
+`bookingUrl` 是报名按钮打开的问卷。
 
-### 修改邮箱、微信号或研究名称
+`bookingQrImage` 是预约二维码图片路径。
 
-在 GitHub 中打开 `site-config.js`，点击铅笔图标编辑：
+如果更换了问卷链接，也要生成对应的新二维码。否则扫码和点击按钮会进入不同页面。
 
-```js
-contactEmail: "新的邮箱",
-wechatId: "新的微信号",
-studyName: "新的研究名称",
+## 更换预约二维码
+
+1. 将新图片命名为 `interview-booking-qr.png`。
+2. 在仓库中打开 `assets` 文件夹。
+3. 上传新图片并替换同名文件。
+4. 提交后等待 GitHub Pages 更新。
+5. 用手机实际扫码，确认地址与 `site-config.js` 中的 `bookingUrl` 完全相同。
+
+保持同一个英文文件名，通常不需要修改其他代码。如果浏览器仍显示旧图，可以强制刷新页面。
+
+## 修改页面文字
+
+打开 `index.html`，使用浏览器的页面查找功能定位原文字，然后只替换标签之间的中文。
+
+例如：
+
+```html
+<strong>招募中</strong>
 ```
 
-保存并提交后，GitHub Pages 会自动重新发布。
+可以改为：
 
-### 修改页面文字
-
-打开 `index.html`，使用浏览器查找功能定位现有文字，直接替换标签之间的中文内容。尽量不要删除 `<` 与 `>` 包围的代码标签。
-
-### 更换图片
-
-1. 准备 PNG 或 JPG 图片，建议使用简短英文文件名，例如 `study-poster-2027.png`。
-2. 上传到 `assets` 文件夹。
-3. 在 `index.html` 中查找旧文件名并替换。
-4. 使用新文件名可以避免浏览器继续显示缓存中的旧图片。
-
-### 修改颜色或字号
-
-页面的主要颜色集中在 `styles.css` 开头的 `:root` 区域：
-
-```css
---blue-60: #0f62fe;
---gray-100: #161616;
---gray-10: #f4f4f4;
+```html
+<strong>已结束</strong>
 ```
 
-不熟悉 CSS 时，建议只修改这些颜色值，不要大范围改动布局规则。
+不要删除尖括号包围的标签。大段改动前建议新建 Git 分支，确认预览后再合并到 `main`。
 
-## 四、每次更新后的检查
+## 项目结束后的处理
 
-- 首页、导航链接和“查看联系方式”是否正常
-- “复制邮箱”和“复制微信号”是否正常
-- 如果配置了微信二维码，手机扫码后是否能打开正确的微信好友信息
-- 两张研究图片是否能加载并查看大图
-- 用手机打开网址，确认文字和按钮没有被截断
-- 招募状态、研究条件、邮箱和隐私说明是否仍然准确
+当前项目结束时，建议先做以下更新。
 
-如果页面出现 `404`，优先检查：
+1. 将首页的“现正招募”和“招募中”改为“招募结束”和“已结束”。
+2. 删除或隐藏预约二维码和报名按钮，避免继续收到报名。
+3. 保留研究介绍、参与条件和隐私说明，作为历史记录。
+4. 有新项目时，再在顶栏加入“历史研究”，并把旧项目整理到 History 区域。
 
-1. 文件名是否为小写的 `index.html`
-2. `index.html` 是否在仓库根目录
-3. Pages 是否选择了 `main` 和 `/(root)`
-4. 仓库名与访问网址是否匹配
+History 会涉及导航和页面结构调整。最稳妥的方式是在独立分支中完成，并先检查电脑和手机页面，再合并到 `main`。
 
-## 文件说明
+## 发布设置
 
-- `index.html`：页面全部文字与结构
-- `styles.css`：颜色、字体、布局与手机适配
-- `script.js`：复制邮箱、复制微信号和图片大图功能
-- `site-config.js`：邮箱、微信号、研究名称和可选微信二维码路径
-- `assets/`：网站图片
-- `.nojekyll`：让 GitHub Pages 直接发布静态文件
+GitHub Pages 应使用以下设置。
 
-## 官方参考
+- Source 选择 `Deploy from a branch`
+- Branch 选择 `main`
+- Folder 选择 `/(root)`
 
-- [GitHub：上传项目文件](https://docs.github.com/en/get-started/start-your-journey/uploading-a-project-to-github)
-- [GitHub Pages：设置发布来源](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-- [GitHub：直接在网页中编辑文件](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)
+合并到 `main` 后，GitHub Pages 会自动重新发布。发布期间旧版本仍可访问。
+
+## 每次更新后的检查
+
+- 首页和顶栏链接可以正常跳转
+- 邮箱复制按钮可以正常使用
+- 问卷按钮会打开正确的腾讯问卷
+- 二维码扫码结果与问卷按钮一致
+- 研究框架图可以打开和关闭
+- 手机页面没有横向溢出
+- 页面只显示当前研究需要的联系方式和图片
+- 招募状态、参与条件和隐私说明仍然准确
+
+腾讯问卷属于外部服务。正式招募前，还应在问卷中写清楚收集内容、使用目的、保存期限、退出和删除方式，以及研究负责人或监督联系方式。
