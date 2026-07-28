@@ -1,25 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
       content="heyating-hci 的 HCI 研究参与页面。当前招募 VTuber 参与直播身份边界与隐私保护访谈。"
-    />
-    <meta name="theme-color" content="#0f62fe" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="参与研究｜heyating-hci" />
+    >
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#0f62fe">
+    <link
+      rel="canonical"
+      href="https://renke21.github.io/Data-Research-Network-hyt/"
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="heyating-hci">
+    <meta property="og:title" content="参与研究｜heyating-hci">
     <meta
       property="og:description"
       content="VTuber 直播中的真实身份边界与隐私保护，线上中文语音访谈参与者招募。"
-    />
-    <meta property="og:image" content="assets/og.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    >
+    <meta
+      property="og:url"
+      content="https://renke21.github.io/Data-Research-Network-hyt/"
+    >
+    <meta
+      property="og:image"
+      content="https://renke21.github.io/Data-Research-Network-hyt/assets/og.png"
+    >
+    <meta
+      property="og:image:alt"
+      content="heyating-hci VTuber 直播身份与隐私研究参与页面"
+    >
+    <meta property="og:image:width" content="1734">
+    <meta property="og:image:height" content="907">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta
+      name="twitter:image"
+      content="https://renke21.github.io/Data-Research-Network-hyt/assets/og.png"
+    >
     <title>参与研究｜heyating-hci</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="site-config.js" defer></script>
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260728">
+    <script src="site-config.js?v=20260728" defer></script>
+    <script src="script.js?v=20260728" defer></script>
   </head>
 
   <body>
@@ -65,7 +89,11 @@
               一起理解虚拟身份与现实身份之间的边界如何被管理。
             </p>
 
-            <div class="hero-actions" aria-label="研究页面快捷入口">
+            <div
+              class="hero-actions"
+              role="group"
+              aria-label="研究页面快捷入口"
+            >
               <a class="button button-primary" href="#contact">
                 查看报名方式 <span aria-hidden="true">↓</span>
               </a>
@@ -76,7 +104,11 @@
             </div>
           </div>
 
-          <aside class="contact-panel" id="contact" aria-labelledby="contact-title">
+          <section
+            class="contact-panel"
+            id="contact"
+            aria-labelledby="contact-title"
+          >
             <div class="panel-index" aria-hidden="true">01</div>
             <p class="section-label">Participation contact</p>
             <h2 id="contact-title">联系报名</h2>
@@ -86,7 +118,7 @@
             </p>
 
             <div class="contact-options">
-              <article class="contact-method">
+              <div class="contact-method">
                 <p class="contact-kind">Email</p>
 
                 <div class="contact-method-row">
@@ -105,7 +137,7 @@
                     复制邮箱
                   </button>
                 </div>
-              </article>
+              </div>
 
               <article class="booking-qr-card">
                 <div class="booking-qr-copy">
@@ -116,41 +148,40 @@
 
                 <div class="booking-qr-visual">
                   <img
-                    src="assets/28.07.2026访谈预约问卷二维码.png"
+                    id="booking-qr-image"
+                    src="assets/interview-booking-qr.png"
                     alt="VTuber 访谈预约问卷二维码"
                     width="240"
                     height="240"
-                  />
+                  >
                 </div>
 
                 <a
-                  class="button button-primary"
+                  class="button button-primary booking-link"
+                  data-booking-link
                   href="https://wj.qq.com/s2/27425896/i3lw/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style="
-                    grid-column: 1 / -1;
-                    width: 100%;
-                    justify-content: center;
-                  "
                 >
-                  点击链接报名预约
+                  打开腾讯问卷报名（新标签页）
                 </a>
               </article>
             </div>
 
+            <p class="contact-note">
+              本页面不会直接保存报名信息。填写内容将提交至腾讯问卷，请只填写安排访谈所需的昵称和联系方式，并在提交前阅读问卷中的说明。
+            </p>
             <p
               class="contact-status"
               id="contact-status"
               role="status"
               aria-live="polite"
-            >
-              本页面不会直接保存报名信息。通过预约问卷提交的内容，将按照问卷中的说明处理。
-            </p>
-          </aside>
+              aria-atomic="true"
+            ></p>
+          </section>
         </div>
 
-        <div class="study-facts" aria-label="访谈关键信息">
+        <div class="study-facts" role="group" aria-label="访谈关键信息">
           <div class="facts-inner page-grid">
             <div class="fact">
               <span class="fact-number">01</span>
@@ -183,7 +214,7 @@
         <div class="page-grid">
           <div class="section-heading">
             <p class="section-label">Current research · 01</p>
-            <h2 id="study-title">理解直播中的<br />身份边界</h2>
+            <h2 id="study-title">理解直播中的<br>身份边界</h2>
           </div>
 
           <div class="study-summary">
@@ -199,7 +230,7 @@
             </p>
           </div>
 
-          <div class="study-status" aria-label="研究状态">
+          <div class="study-status" role="group" aria-label="研究状态">
             <span>状态</span>
             <strong>
               <span class="status-dot" aria-hidden="true"></span>
@@ -218,11 +249,11 @@
         <div class="page-grid">
           <div class="section-heading">
             <p class="section-label">Who can join</p>
-            <h2 id="participate-title">谁可以<br />参加？</h2>
+            <h2 id="participate-title">谁可以<br>参加？</h2>
           </div>
 
           <article class="criteria-card criteria-primary">
-            <p class="card-index">A / 基本条件</p>
+            <h3 class="card-index">A / 基本条件</h3>
 
             <ul class="check-list">
               <li>年满 18 周岁</li>
@@ -238,7 +269,7 @@
           </article>
 
           <article class="criteria-card criteria-secondary">
-            <p class="card-index">B / 有以下经历也非常欢迎</p>
+            <h3 class="card-index">B / 有以下经历也非常欢迎</h3>
 
             <ul class="plain-list">
               <li>遇到与现实身份有关的提问或线索暴露</li>
@@ -256,7 +287,7 @@
         <div class="page-grid">
           <div class="section-heading">
             <p class="section-label">Interview format</p>
-            <h2 id="interview-title">一次轻量的<br />线上访谈</h2>
+            <h2 id="interview-title">一次轻量的<br>线上访谈</h2>
           </div>
 
           <div class="interview-grid">
@@ -292,7 +323,7 @@
         <div class="page-grid">
           <div class="framework-copy">
             <p class="section-label">Research perspective</p>
-            <h2 id="framework-title">从个人隐私到<br />协作式社会生态</h2>
+            <h2 id="framework-title">从个人隐私到<br>协作式社会生态</h2>
 
             <p>
               我们将直播身份理解为由身份属性、表达情境与数据痕迹共同构成，
@@ -310,18 +341,38 @@
             >
               <img
                 src="assets/livestreaming-identity-ecosystem.png"
-                alt="直播身份协作式社会生态研究框架，展示社会价值、身份属性、表达层、数据痕迹及治理技术"
+                alt="直播身份协作式社会生态研究框架图"
+                aria-describedby="framework-caption"
                 loading="lazy"
                 width="1600"
                 height="1029"
-              />
+              >
 
               <span class="image-action">
                 查看研究框架 <span aria-hidden="true">↗</span>
               </span>
             </button>
 
-            <figcaption>
+            <details class="figure-transcript">
+              <summary>阅读框架图文字说明</summary>
+              <div>
+                <p>
+                  框架以直播身份为中心，包含身份属性、表达层和数据痕迹三个部分。
+                </p>
+                <ul>
+                  <li>
+                    身份属性包括信息隐私、情境隐私、身体隐私、信任与声誉。
+                  </li>
+                  <li>表达层包括情绪表达、社会呈现与具体情境。</li>
+                  <li>数据痕迹包括行为信号、数字足迹与社会足迹。</li>
+                </ul>
+                <p>
+                  相关参与者包括主播、VTuber、观众、直播平台、人工智能审核、人工审核员、社区、设计师、研究者、公共机构和内容创作者。框架同时关注包容参与、公众参与、社区信任、数字福祉等社会价值，以及伦理人工智能、适应性保护、平台责任和可持续治理。
+                </p>
+              </div>
+            </details>
+
+            <figcaption id="framework-caption">
               从个人隐私、数字身份到直播身份的研究视角
             </figcaption>
           </figure>
@@ -332,7 +383,7 @@
         <div class="page-grid">
           <div class="section-heading">
             <p class="section-label">Privacy first</p>
-            <h2 id="privacy-title">你的隐私<br />同样重要</h2>
+            <h2 id="privacy-title">你的隐私<br>同样重要</h2>
           </div>
 
           <ol class="privacy-list">
@@ -420,7 +471,11 @@
       </div>
 
       <div class="dialog-image-wrap">
-        <img id="dialog-image" src="" alt="" />
+        <img
+          id="dialog-image"
+          src="assets/livestreaming-identity-ecosystem.png"
+          alt=""
+        >
       </div>
     </dialog>
   </body>
