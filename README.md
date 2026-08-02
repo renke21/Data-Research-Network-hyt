@@ -24,7 +24,7 @@ assets/
 ```
 
 - `index.html` 包含页面结构和大部分文字
-- `styles.css` 包含 IBM 风格的颜色、布局和手机适配
+- `styles.css` 包含  风格颜色、布局和手机适配
 - `script.js` 负责复制邮箱、载入报名配置和查看研究框架大图
 - `site-config.js` 集中保存邮箱、问卷链接和二维码路径
 - `assets` 保存网站图片
