@@ -1,120 +1,47 @@
 (() => {
+  "use strict";
+
   const config = window.SITE_CONFIG || {};
-  const email = config.contactEmail || "renkeho21@gmail.com";
-  const bookingUrl =
-    config.bookingUrl || "https://wj.qq.com/s2/27425896/i3lw/";
-  const bookingQrImage =
-    config.bookingQrImage || "assets/interview-booking-qr.png";
+  const contactEmail = config.contactEmail || "renkeho21@gmail.com";
 
-  document
-    .querySelectorAll('[data-contact-value="email"]')
-    .forEach((element) => {
-      element.textContent = email;
-    });
-
-  document.querySelectorAll("[data-booking-link]").forEach((link) => {
-    link.href = bookingUrl;
+  document.querySelectorAll('[data-contact-value="email"]').forEach((node) => {
+    node.textContent = contactEmail;
   });
 
-  const qrImage = document.querySelector("#booking-qr-image");
-  if (qrImage) qrImage.src = bookingQrImage;
+  document.querySelectorAll("[data-current-year]").forEach((node) => {
+    node.textContent = String(new Date().getFullYear());
+  });
 
-  const contactStatus = document.querySelector("#contact-status");
-  let statusTimer;
-
-  function showContactStatus(message) {
-    if (!contactStatus) return;
-
-    window.clearTimeout(statusTimer);
-    contactStatus.textContent = message;
-    statusTimer = window.setTimeout(() => {
-      contactStatus.textContent = "";
-    }, 6000);
-  }
-
-  async function copyText(value) {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(value);
-      return;
-    }
-
-    const textarea = document.createElement("textarea");
-    textarea.value = value;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
-
-    const copied = document.execCommand("copy");
-    textarea.remove();
-
-    if (!copied) throw new Error("Copy failed");
-  }
-
-  document.querySelectorAll('[data-copy-contact="email"]').forEach((button) => {
+  document.querySelectorAll("[data-copy-contact]").forEach((button) => {
     button.addEventListener("click", async () => {
-      const originalText = button.textContent.trim();
+      const status = button.parentElement?.querySelector("[data-contact-status]");
 
       try {
-        await copyText(email);
-        button.textContent = "已复制";
-        showContactStatus(`邮箱地址 ${email} 已复制到剪贴板。`);
+        await navigator.clipboard.writeText(contactEmail);
+        if (status) status.textContent = "邮箱已复制";
       } catch {
-        showContactStatus(`无法自动复制，请手动复制邮箱地址 ${email}。`);
+        if (status) status.textContent = `请手动复制 ${contactEmail}`;
       }
-
-      window.setTimeout(() => {
-        button.textContent = originalText;
-      }, 1800);
     });
   });
-
-  const year = document.querySelector("#current-year");
-  if (year) year.textContent = new Date().getFullYear();
 
   const dialog = document.querySelector("#image-dialog");
   const dialogImage = document.querySelector("#dialog-image");
-  const dialogClose = document.querySelector(".dialog-close");
-  const imageButtons = document.querySelectorAll(".image-button");
-  let dialogTrigger;
+  const closeButton = dialog?.querySelector(".dialog-close");
 
-  imageButtons.forEach((button) => {
+  document.querySelectorAll("[data-image]").forEach((button) => {
     button.addEventListener("click", () => {
-      if (!dialog || !dialogImage) return;
+      if (!dialog || !dialogImage || typeof dialog.showModal !== "function") return;
 
-      dialogTrigger = button;
-      dialogImage.src = button.dataset.image || "";
-      dialogImage.alt = button.dataset.alt || "";
+      dialogImage.src = button.dataset.image || dialogImage.src;
+      dialogImage.alt = button.dataset.alt || "研究图片大图";
       dialog.showModal();
-      document.body.classList.add("dialog-open");
     });
   });
 
-  function resetDialog() {
-    document.body.classList.remove("dialog-open");
+  closeButton?.addEventListener("click", () => dialog?.close());
 
-    if (dialogImage) {
-      dialogImage.removeAttribute("src");
-      dialogImage.alt = "";
-    }
-
-    if (dialogTrigger) {
-      dialogTrigger.focus();
-      dialogTrigger = undefined;
-    }
-  }
-
-  function closeDialog() {
-    if (dialog?.open) dialog.close();
-  }
-
-  dialogClose?.addEventListener("click", closeDialog);
-
-  if (dialog) {
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) closeDialog();
-    });
-    dialog.addEventListener("close", resetDialog);
-  }
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
 })();
