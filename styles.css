@@ -211,25 +211,105 @@ ol {
   letter-spacing: -0.065em;
 }
 
-.home-grid h1 > span {
-  display: block;
+#home-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.12em;
 }
 
-.loading-line {
-  margin-left: clamp(1.2rem, 11vw, 8rem);
-}
-
-.loading-slash {
+.loading-face {
+  position: relative;
   display: inline-block;
-  margin-left: 0.12em;
-  font-weight: 300;
-  transform-origin: 50% 52%;
-  animation: slash-turn 2.4s linear infinite;
+  width: 1.8em;
+  height: 1em;
+  flex-shrink: 0;
+  font-size: 0.36em;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-@keyframes slash-turn {
-  to {
-    transform: rotate(360deg);
+.face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  opacity: 0;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
+}
+
+.face-normal {
+  animation-name: face-normal;
+}
+
+.face-blink {
+  animation-name: face-blink;
+}
+
+.face-smile {
+  animation-name: face-smile;
+}
+
+@keyframes face-normal {
+  0%,
+  69% {
+    opacity: 1;
+  }
+
+  70%,
+  73% {
+    opacity: 0;
+  }
+
+  74%,
+  87% {
+    opacity: 1;
+  }
+
+  88%,
+  94% {
+    opacity: 0;
+  }
+
+  95%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes face-blink {
+  0%,
+  69% {
+    opacity: 0;
+  }
+
+  70%,
+  73% {
+    opacity: 1;
+  }
+
+  74%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes face-smile {
+  0%,
+  87% {
+    opacity: 0;
+  }
+
+  88%,
+  94% {
+    opacity: 1;
+  }
+
+  95%,
+  100% {
+    opacity: 0;
   }
 }
 
@@ -1049,12 +1129,8 @@ ol {
   }
 
   .home-grid h1 {
-    font-size: clamp(3rem, 17vw, 4.8rem);
+    font-size: clamp(2.1rem, 11vw, 3rem);
     line-height: 0.94;
-  }
-
-  .loading-line {
-    margin-left: 0.55em;
   }
 
   .contact-grid {
@@ -1168,7 +1244,11 @@ ol {
     animation-iteration-count: 1 !important;
   }
 
-  .loading-slash {
+  .face {
     animation: none;
+  }
+
+  .face-normal {
+    opacity: 1;
   }
 }
