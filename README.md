@@ -4,13 +4,20 @@
 
 ## 页面结构
 
-- `index.html` 是极简首页
+- `index.html` 是当前研究首页，目前展示 Generative AI in Micro-Drama
 - `history.html` 是历史项目集合
 - `vtuber-identity-study.html` 是 VTuber 项目记录
 - `styles.css` 管理全部排版和响应式样式
 - `script.js` 管理复制邮箱、年份和图片弹窗
 - `site-config.js` 保存联系邮箱
 - `assets/` 保存网站图片
+- `backups/homepage-2026-11-11/` 完整保留更新前的首页和依赖文件，包含原来的眨眼表情
+
+## 原首页备份
+
+原首页保存在 `backups/homepage-2026-11-11/index.html`，其中的样式、脚本、图片和导航页面也已一并保留。该备份没有加入顶栏的历史项目列表。
+
+需要恢复时，将该文件夹中的 `index.html`、`styles.css`、`script.js` 和 `site-config.js` 复制回仓库根目录。不要删除根目录的 `assets/` 或覆盖其他项目页面。
 
 ## 修改邮箱
 
