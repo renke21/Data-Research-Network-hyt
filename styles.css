@@ -334,6 +334,49 @@ ol {
   letter-spacing: 0.1em;
 }
 
+/* Current homepage research */
+
+.current-research #home-title {
+  display: block;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.current-research .studio-credit {
+  color: var(--ink);
+}
+
+.research-facts {
+  border-top: 1px solid var(--ink);
+}
+
+.research-facts > div {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding-block: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.research-facts dt {
+  padding-top: 0.1rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.research-facts dd {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 620px) {
+  .research-facts > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+}
+
 /* Contact and footer */
 
 .contact-band {
